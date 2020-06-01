@@ -90,6 +90,7 @@ function getChannel(channel) {
     .then((response) => {
       console.log(response);
       const channel = response.result.items[0];
+      console.log('Subscribers: ', channel.statistics.subscriberCount);
 
       const output = `
         <ul class="collection">
