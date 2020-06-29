@@ -11,8 +11,6 @@ const signoutButton = document.getElementById('signout-button');
 const content = document.getElementById('content');
 const videoContainer = document.getElementById('video-container');
 
-const defaultChannel = 'techguyweb';
-
 // Load auth2 library
 function handleClientLoad() {
   gapi.load('client:auth2', initClient);
@@ -43,7 +41,7 @@ function updateSigninStatus(isSignedIn) {
     signoutButton.style.display = 'block';
     content.style.display = 'block';
     videoContainer.style.display = 'block';
-    getChannel(defaultChannel);
+    getChannel();
   } else {
     authorizeButton.style.display = 'block';
     signoutButton.style.display = 'none';
@@ -69,11 +67,10 @@ function showChannelData(data) {
 }
 
 // Get channel from API
-function getChannel(channel) {
+function getChannel() {
   gapi.client.youtube.channels
     .list({
       part: 'snippet,contentDetails,statistics',
-      // forUsername: channel,
       mine: true,
     })
     .then((response) => {
