@@ -104,7 +104,7 @@ function getChannel(channel) {
           )}</li>
           <li class="collection-item">Videos: ${numberWithCommas(
             channel.statistics.videoCount
-          )}</li><li class="collection-item">Videos: ${numberWithCommas(
+          )}</li><li class="collection-item">Comments: ${numberWithCommas(
         channel.statistics.commentCount
       )}</li>
         </ul>
